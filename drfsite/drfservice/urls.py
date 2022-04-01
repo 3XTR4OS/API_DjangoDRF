@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path
-from .views import ClientAPIview, MailingAPIview, MessageAPIview, ClientAPIDetailView
+from .views import ClientAPIview, ClientAPIDetailView, MailingAPIview, MailingAPIDetailView, MessageAPIview, \
+    MessageAPIDetailView
 
 urlpatterns = [
-    path('clientlist/', ClientAPIview.as_view()),
-    path('clientlistdetail/<int:pk>/', ClientAPIDetailView.as_view()),
-    path('mailinglist/', MailingAPIview.as_view()),
-    path('mailinglistdetail/<int:pk>/', MailingAPIview.as_view()),
-    path('messagelist/', MessageAPIview.as_view()),
-    path('messagelistdetail/<int:pk>/', MessageAPIview.as_view()),
+    path('clients/', ClientAPIview.as_view()),
+    path('clients/<int:pk>/', ClientAPIDetailView.as_view()),
+    path('mailings/', MailingAPIview.as_view()),
+    path('mailings/<int:pk>/', MailingAPIDetailView.as_view()),
+    path('messages/', MessageAPIview.as_view()),
+    path('messages/<int:pk>/', MessageAPIDetailView.as_view()),
 ]
