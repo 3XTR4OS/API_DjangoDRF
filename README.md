@@ -11,9 +11,9 @@
 
 2) В терминале прописать: git clone https://github.com/3XTR4OS/API_DjangoDRF
 
-3) По завершении клонирования, с помощью терминала перейти к папке drfsite
-cd API_DjangoDRF
-cd drfsite
+3) По завершении клонирования, с помощью терминала перейти к папке drfsite  
+cd API_DjangoDRF  
+cd drfsite  
 
 4) Прописать в терминале: py manage.py runserver
 
