@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from .views import ClientAPIview, ClientAPIDetailView, MailingAPIview, MailingAPIDetailView, MessageAPIview, \
-    MessageAPIDetailView
+    MessageAPIDetailView, mail_sender
 
 urlpatterns = [
     path('clients/', ClientAPIview.as_view()),

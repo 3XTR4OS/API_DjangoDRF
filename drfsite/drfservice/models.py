@@ -22,3 +22,15 @@ class Message(models.Model):
     status = models.CharField(max_length=100)
     id_mailing = models.ForeignKey('Mailing', on_delete=models.PROTECT, null=True)
     id_client = models.ForeignKey('Client', on_delete=models.PROTECT, null=True)
+
+
+class MailingStatistic(models.Model):
+    #### SIMPLE STATISTIC ####
+    # how many created
+    # sended or not
+    # count of sended
+    # status: (code 400 or ['Message': bbllbl, code: OK]
+    #### DETAIL STATISTIC ####
+    # конкретная рассылка
+    # конкретная детальная статистика отправленных сообщений
+    pass
