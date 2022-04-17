@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
+import timezone_field
+import pytz
 
 
 class Mailing(models.Model):
@@ -12,13 +14,13 @@ class Mailing(models.Model):
 class Client(models.Model):
     phoneNumberRegex = RegexValidator(regex=r"^7\d{10}$")
     phone_number = models.CharField(validators=[phoneNumberRegex], max_length=11)
-    operator_code = models.CharField(max_length=100)
+    operator_code = models.CharField(max_length=3)
     tag = models.CharField(max_length=100)
-    time_zone = models.CharField(max_length=100)
+    time_zone = models.CharField(max_length=6)
 
 
 class Message(models.Model):
-    send_date_and_time = models.DateTimeField()
+    send_date_and_time = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=100)
     id_mailing = models.ForeignKey('Mailing', on_delete=models.PROTECT, null=True)
     id_client = models.ForeignKey('Client', on_delete=models.PROTECT, null=True)

@@ -26,8 +26,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
+# Celery Configuration Options
+CELERY_TIMEZONE = "Europe/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -11,35 +11,42 @@ import auth_token  # needs to hide auth_token from deploy inside .gitignore
 
 
 def mail_sender(request):
-    # return HttpResponse("Hello, world. You're at the polls index.")
-    while True:
-        responses = []
-        token = auth_token.auth_token()
-        hed = {'Authorization': 'Bearer ' + token}
-        url = 'https://probe.fbrq.cloud/v1/send/'
-        responses = []
-
-        for item in Client.objects.all():
-            data = {'id': item.id, 'phone': item.phone_number, 'text': 'привет мир'}
-            resp_url = url + str(data['id'])
-            response = requests.post(resp_url, json=data, headers=hed)
-            responses.append(response)
-
-            # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
-            # response = requests.post(resp_url, json=data)
-            # responses.append(response)
-            #
-            # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
-            # response = requests.post(url)
-            # responses.append(response)
-            #
-            # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
-            # response = requests.post(url + str('1'))
-            # responses.append(response)
-            # print(data)
-            print(response)
-            print([i.text for i in responses])
-        time.sleep(10)
+    # print('-' * 50)
+    # print(Message.objects.get(id=5))
+    # print(Client.objects.get(id=17).phone_number)
+    # print(Mailing.objects.get(id=30).message_text)
+    # print('-' * 50)
+    return HttpResponse("Hello, world. You're at the polls index.")
+    # print([i.phone_number for i in Client.objects.filter(tag="all")])
+    # print([i.message_text for i in Mailing.objects.all() if i.client_filter in [i.tag for i in Client.objects.filter(tag='MTS')]])
+    # while True:
+    #     responses = []
+    #     token = auth_token.auth_token()
+    #     hed = {'Authorization': 'Bearer ' + token}
+    #     url = 'https://probe.fbrq.cloud/v1/send/'
+    #     responses = []
+    #
+    #     for item in Client.objects.all():
+    #         data = {'id': item.id, 'phone': item.phone_number, 'text': 'привет мир'}
+    #         resp_url = url + str(data['id'])
+    #         response = requests.post(resp_url, json=data, headers=hed)
+    #         responses.append(response)
+    #
+    #         # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
+    #         # response = requests.post(resp_url, json=data)
+    #         # responses.append(response)
+    #         #
+    #         # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
+    #         # response = requests.post(url)
+    #         # responses.append(response)
+    #         #
+    #         # # Добавлено для теста ошибок. (!!!ПОТОМ УДАЛИТЬ!!!)
+    #         # response = requests.post(url + str('1'))
+    #         # responses.append(response)
+    #         # print(data)
+    #         print(response)
+    #         print([i.text for i in responses])
+    #     time.sleep(10)
 
 
 #
