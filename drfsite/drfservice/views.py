@@ -7,7 +7,6 @@ import requests
 import time
 from .models import Client, Mailing, Message
 from .serializers import ClientSerializer, MailingSerializer, MessageSerializer
-import auth_token  # needs to hide auth_token from deploy inside .gitignore
 
 
 def mail_sender(request):

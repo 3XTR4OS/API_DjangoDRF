@@ -1,4 +1,3 @@
-import auth_token
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Client, Mailing, Message
@@ -10,7 +9,8 @@ def my_callback(created, **kwargs):
     """creating Message object in db and send API request"""
     if created:
         instance = kwargs['instance']
-        token = auth_token.auth_token()  # bearer token
+        token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzkyMzIzOTcsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6I' \
+                 'kVYVFJBT1MifQ.Od2PkseQ2s-Q2rI_1cV2UvVIvpcLsG8QmkcKdKapAzU'  # bearer token
         hed = {'Authorization': 'Bearer ' + token}
         URL = 'https://probe.fbrq.cloud/v1/send/'  # Base API url
         # start making message obj
